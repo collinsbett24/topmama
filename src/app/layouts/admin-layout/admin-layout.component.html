@@ -1,0 +1,45 @@
+<div class="wrapper">
+    <div class="toolbar" role="banner">
+      <img
+      width="40"
+      alt="Angular Logo"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+    />
+    <span>  
+      <H2 style="color:ghostwhite;">
+        Collins| Top Mama
+      </H2>
+    </span>
+    <span class="spacer"></span>
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+    <li><a *ngIf="!LoggedIn" [routerLink]="['register']">Register</a></li>
+    <li><a *ngIf="!LoggedIn" [routerLink]="['login']">Login</a></li>
+    <li><a *ngIf="LoggedIn" [routerLink]="['/homepage']">Users</a></li>
+    <li><a *ngIf="LoggedIn" [routerLink]="['/account']">My Account</a></li>
+    <li>
+      <a *ngIf="LoggedIn" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</div>
+</div>
+
+  <div align="center" class="main-panel">
+   <br>
+   <br>
+   <br/>
+    <div *ngIf='LoggedIn' style class="card-header">
+          Time to Auto-Logout
+          <div class="card-body">
+              <countdown #tokenCountdown [config]="{ leftTime: 600, format: 'm:s', notify: [1] }" (event)="handleEvent($event)"></countdown>
+              <button class="btn btn-sm btn-success" (click)="tokenCountdown.restart()">Refresh</button>
+        </div>
+        <button class="btn btn-sm btn-danger" (click)="logout()">logout</button>
+          <!-- <view-code name="custom-format"></view-code> -->
+    </div>  
+
+    <router-outlet></router-outlet>
+   
+  </div>
+
