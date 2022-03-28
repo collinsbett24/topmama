@@ -8,7 +8,6 @@ import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { ComponentsModule } from "./components/components.module";
 import { CountdownModule } from 'ngx-countdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    ComponentsModule,
     CountdownModule,
     ReactiveFormsModule,
     RouterModule,
